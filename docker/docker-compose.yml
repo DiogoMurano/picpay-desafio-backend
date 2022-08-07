@@ -1,0 +1,18 @@
+version: '3'
+services:
+
+  postgres:
+    image: 'postgres:alpine'
+    volumes:
+      - ./schema.sql:/docker-entrypoint-initdb.d/init.sql
+      - picpay-postgres-volume:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=picpay
+
+volumes:
+  picpay-postgres-volume:

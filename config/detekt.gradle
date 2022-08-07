@@ -1,0 +1,4 @@
+detekt {
+    buildUponDefaultConfig = true
+    allRules = false
+}

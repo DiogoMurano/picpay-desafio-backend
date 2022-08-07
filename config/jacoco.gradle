@@ -1,0 +1,29 @@
+def excludedFiles = ["**/Application*", "br/com/diogomurano/picpay/common/**"]
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
+
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: excludedFiles)
+        }))
+    }
+}
+
+jacocoTestCoverageVerification {
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: excludedFiles)
+        }))
+    }
+
+    violationRules {
+        rule {
+            limit {
+                minimum = "0.87".toBigDecimal()
+            }
+        }
+    }
+}
