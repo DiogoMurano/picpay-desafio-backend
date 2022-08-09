@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserRepositoryImpl.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">picpay</a> &gt; <a href="index.source.html" class="el_package">br.com.diogomurano.picpay.user.adapter.repository</a> &gt; <span class="el_source">UserRepositoryImpl.kt</span></div><h1>UserRepositoryImpl.kt</h1><pre class="source lang-java linenums">package br.com.diogomurano.picpay.user.adapter.repository
+
+import br.com.diogomurano.picpay.user.adapter.repository.database.UserEntityDatabase
+import br.com.diogomurano.picpay.user.adapter.repository.mapper.UserEntityMapper
+import br.com.diogomurano.picpay.user.domain.exceptions.UserNotFoundException
+import br.com.diogomurano.picpay.user.domain.model.User
+import br.com.diogomurano.picpay.user.domain.ports.output.UserRepository
+import org.springframework.stereotype.Repository
+import java.math.BigDecimal
+import java.util.*
+
+<span class="nc" id="L12">@Repository</span>
+<span class="nc" id="L13">class UserRepositoryImpl(</span>
+<span class="nc" id="L14">    private val userEntityDatabase: UserEntityDatabase</span>
+) : UserRepository {
+
+<span class="nc" id="L17">    override fun findById(id: UUID) = userEntityDatabase</span>
+<span class="nc bnc" id="L18" title="All 2 branches missed.">        .findByExternalId(id)?.let { UserEntityMapper.fromEntityToModel(it) }</span>
+
+<span class="nc" id="L20">    override fun findByEmail(email: String) = userEntityDatabase</span>
+<span class="nc bnc" id="L21" title="All 2 branches missed.">        .findByEmail(email)?.let { UserEntityMapper.fromEntityToModel(it) }</span>
+
+<span class="nc" id="L23">    override fun findByDocument(document: String) = userEntityDatabase</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        .findByDocument(document)?.let { UserEntityMapper.fromEntityToModel(it) }</span>
+
+<span class="nc" id="L26">    override fun create(user: User) = userEntityDatabase</span>
+<span class="nc" id="L27">        .save(UserEntityMapper.fromModelToEntity(user)).let { UserEntityMapper.fromEntityToModel(it) }</span>
+
+    override fun update(user: User): User {
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        val findUser = userEntityDatabase.findByExternalId(user.id!!)</span>
+<span class="nc" id="L31">            ?: throw UserNotFoundException()</span>
+<span class="nc" id="L32">        val updatedUserEntity = UserEntityMapper.fromModelToEntity(user)</span>
+
+<span class="nc" id="L34">        updatedUserEntity.id = findUser.id</span>
+
+<span class="nc" id="L36">        return userEntityDatabase.save(updatedUserEntity).let { UserEntityMapper.fromEntityToModel(it) }</span>
+    }
+
+    override fun updateBalanceWithPlusOperation(user: User, value: BigDecimal) =
+<span class="nc" id="L40">        userEntityDatabase.updateBalanceWithPlusOperation(user.id!!, value)</span>
+
+    override fun updateBalanceWithMinusOperation(user: User, value: BigDecimal) =
+<span class="nc" id="L43">        userEntityDatabase.updateBalanceWithMinusOperation(user.id!!, value)</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

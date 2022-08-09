@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Transaction.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">picpay</a> &gt; <a href="index.source.html" class="el_package">br.com.diogomurano.picpay.transaction.domain.model</a> &gt; <span class="el_source">Transaction.kt</span></div><h1>Transaction.kt</h1><pre class="source lang-java linenums">package br.com.diogomurano.picpay.transaction.domain.model
+
+import br.com.diogomurano.picpay.user.domain.model.User
+import org.valiktor.functions.isNotBlank
+import org.valiktor.functions.isPositive
+import org.valiktor.validate
+import java.math.BigDecimal
+
+<span class="nc" id="L9">data class Transaction(</span>
+<span class="nc" id="L10">    val from: User,</span>
+<span class="nc" id="L11">    val target: User,</span>
+<span class="nc" id="L12">    val value: BigDecimal,</span>
+<span class="nc" id="L13">    val description: String</span>
+) {
+
+<span class="nc" id="L16">    init {</span>
+<span class="nc" id="L17">        validate(this) {</span>
+<span class="nc" id="L18">            validate(Transaction::value)</span>
+<span class="nc" id="L19">                .isPositive()</span>
+<span class="nc" id="L20">            validate(Transaction::description)</span>
+<span class="nc" id="L21">                .isNotBlank()</span>
+<span class="nc" id="L22">        }</span>
+<span class="nc" id="L23">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

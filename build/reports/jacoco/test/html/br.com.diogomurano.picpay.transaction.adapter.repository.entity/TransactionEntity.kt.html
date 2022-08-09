@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TransactionEntity.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">picpay</a> &gt; <a href="index.source.html" class="el_package">br.com.diogomurano.picpay.transaction.adapter.repository.entity</a> &gt; <span class="el_source">TransactionEntity.kt</span></div><h1>TransactionEntity.kt</h1><pre class="source lang-java linenums">package br.com.diogomurano.picpay.transaction.adapter.repository.entity
+
+import br.com.diogomurano.picpay.common.adapter.repository.AbstractJpaPersistable
+import br.com.diogomurano.picpay.user.adapter.repository.entity.UserEntity
+import java.math.BigDecimal
+import javax.persistence.*
+
+@Entity
+@Table(name = &quot;transactions&quot;)
+<span class="nc" id="L10">class TransactionEntity(</span>
+<span class="nc" id="L11">    @field:ManyToOne</span>
+    @field:JoinColumn(name=&quot;from_user_id&quot;, nullable=false)
+<span class="nc" id="L13">    val fromUser: UserEntity,</span>
+<span class="nc" id="L14">    @field:ManyToOne</span>
+    @field:JoinColumn(name=&quot;target_user_id&quot;, nullable=false)
+<span class="nc" id="L16">    val targetUser: UserEntity,</span>
+<span class="nc" id="L17">    @field:Column</span>
+<span class="nc" id="L18">    val value: BigDecimal,</span>
+<span class="nc" id="L19">    @field:Column</span>
+<span class="nc" id="L20">    val description: String</span>
+<span class="nc" id="L21">): AbstractJpaPersistable&lt;Long&gt;()</span>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

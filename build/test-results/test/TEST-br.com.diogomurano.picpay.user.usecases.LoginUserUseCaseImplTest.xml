@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="br.com.diogomurano.picpay.user.usecases.LoginUserUseCaseImplTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-08-08T03:29:42" hostname="IN0173" time="1.444">
+  <properties/>
+  <testcase name="should throw incorrect password on login user()" classname="br.com.diogomurano.picpay.user.usecases.LoginUserUseCaseImplTest" time="1.338"/>
+  <testcase name="should throw user not found on login user()" classname="br.com.diogomurano.picpay.user.usecases.LoginUserUseCaseImplTest" time="0.006"/>
+  <testcase name="should login user successfully()" classname="br.com.diogomurano.picpay.user.usecases.LoginUserUseCaseImplTest" time="0.088"/>
+  <system-out><![CDATA[00:29:41.860 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for UserRepository name=#1
+00:29:42.665 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for CryptoGateway name=#2
+00:29:42.714 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for TokenGateway name=#3
+00:29:43.993 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for User name=child of #1#4
+00:29:44.043 [Test worker] DEBUG io.mockk.impl.recording.states.AnsweringState - Answering User(fullName=User Name, document=000.000.000-00, email=user@email.com, password=password123, type=COMMON, balance=0, id=3ace7ec5-5806-48f6-a74a-dea3d75a7dd8) on UserRepository(#1).findByEmail(user@email.com)
+00:29:44.050 [Test worker] DEBUG io.mockk.impl.recording.states.AnsweringState - Answering false on CryptoGateway(#2).matches(password123, password123)
+00:29:44.116 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for UserRepository name=#5
+00:29:44.120 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for CryptoGateway name=#6
+00:29:44.120 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for TokenGateway name=#7
+00:29:44.125 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for User name=child of #5#8
+00:29:44.126 [Test worker] DEBUG io.mockk.impl.recording.states.AnsweringState - Answering null on UserRepository(#5).findByEmail(user@email.com)
+00:29:44.128 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for UserRepository name=#9
+00:29:44.128 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for CryptoGateway name=#10
+00:29:44.129 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for TokenGateway name=#11
+00:29:44.131 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for User name=child of #9#12
+00:29:44.205 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for Pair name=child of #11#13
+00:29:44.206 [Test worker] DEBUG io.mockk.impl.recording.states.AnsweringState - Answering User(fullName=User Name, document=000.000.000-00, email=user@email.com, password=password123, type=COMMON, balance=0, id=17362945-8026-4404-9dea-3a36dfbbe72a) on UserRepository(#9).findByEmail(user@email.com)
+00:29:44.207 [Test worker] DEBUG io.mockk.impl.recording.states.AnsweringState - Answering true on CryptoGateway(#10).matches(password123, password123)
+00:29:44.207 [Test worker] DEBUG io.mockk.impl.recording.states.AnsweringState - Answering (728bf02a-0d6b-46d4-ac7d-152c476facb4, 600) on TokenGateway(#11).generate(User(fullName=User Name, document=000.000.000-00, email=user@email.com, password=password123, type=COMMON, balance=0, id=17362945-8026-4404-9dea-3a36dfbbe72a))
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

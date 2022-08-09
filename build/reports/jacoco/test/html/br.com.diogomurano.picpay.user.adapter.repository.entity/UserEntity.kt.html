@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserEntity.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">picpay</a> &gt; <a href="index.source.html" class="el_package">br.com.diogomurano.picpay.user.adapter.repository.entity</a> &gt; <span class="el_source">UserEntity.kt</span></div><h1>UserEntity.kt</h1><pre class="source lang-java linenums">package br.com.diogomurano.picpay.user.adapter.repository.entity
+
+import br.com.diogomurano.picpay.common.adapter.repository.AbstractJpaPersistable
+import br.com.diogomurano.picpay.user.domain.enums.UserType
+import org.hibernate.annotations.Type
+import java.math.BigDecimal
+import java.util.*
+import javax.persistence.*
+
+@Entity
+@Table(name = &quot;users&quot;)
+<span class="nc" id="L12">class UserEntity(</span>
+<span class="nc" id="L13">    @field:Column(name = &quot;full_name&quot;)</span>
+<span class="nc" id="L14">    val fullName: String,</span>
+<span class="nc" id="L15">    @field:Column(name = &quot;document&quot;, unique = true)</span>
+<span class="nc" id="L16">    val document: String,</span>
+<span class="nc" id="L17">    @field:Column(name = &quot;email&quot;, unique = true)</span>
+<span class="nc" id="L18">    val email: String,</span>
+<span class="nc" id="L19">    @field:Column(name = &quot;password&quot;)</span>
+<span class="nc" id="L20">    val password: String,</span>
+<span class="nc" id="L21">    @field:Column(name = &quot;type&quot;)</span>
+    @field:Enumerated(EnumType.STRING)
+    @field:Type(type = &quot;br.com.diogomurano.picpay.common.adapter.repository.configuration.PostgreSQLEnumType&quot;)
+<span class="nc" id="L24">    val type: UserType,</span>
+<span class="nc" id="L25">    @field:Column(name = &quot;balance&quot;)</span>
+<span class="nc" id="L26">    val balance: BigDecimal = BigDecimal.ZERO,</span>
+<span class="nc" id="L27">    @field:Column(name = &quot;external_id&quot;, unique = true, updatable = false, nullable = false)</span>
+<span class="nc" id="L28">    val externalId: UUID</span>
+<span class="nc" id="L29">): AbstractJpaPersistable&lt;Long&gt;()</span>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

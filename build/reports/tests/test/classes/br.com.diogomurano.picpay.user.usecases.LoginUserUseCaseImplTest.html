@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - LoginUserUseCaseImplTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>LoginUserUseCaseImplTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/br.com.diogomurano.picpay.user.usecases.html">br.com.diogomurano.picpay.user.usecases</a> &gt; LoginUserUseCaseImplTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">3</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">1.432s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">should login user successfully()</td>
+<td class="success">0.088s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">should throw incorrect password on login user()</td>
+<td class="success">1.338s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">should throw user not found on login user()</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>00:29:41.860 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for UserRepository name=#1
+00:29:42.665 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for CryptoGateway name=#2
+00:29:42.714 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for TokenGateway name=#3
+00:29:43.993 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for User name=child of #1#4
+00:29:44.043 [Test worker] DEBUG io.mockk.impl.recording.states.AnsweringState - Answering User(fullName=User Name, document=000.000.000-00, email=user@email.com, password=password123, type=COMMON, balance=0, id=3ace7ec5-5806-48f6-a74a-dea3d75a7dd8) on UserRepository(#1).findByEmail(user@email.com)
+00:29:44.050 [Test worker] DEBUG io.mockk.impl.recording.states.AnsweringState - Answering false on CryptoGateway(#2).matches(password123, password123)
+00:29:44.116 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for UserRepository name=#5
+00:29:44.120 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for CryptoGateway name=#6
+00:29:44.120 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for TokenGateway name=#7
+00:29:44.125 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for User name=child of #5#8
+00:29:44.126 [Test worker] DEBUG io.mockk.impl.recording.states.AnsweringState - Answering null on UserRepository(#5).findByEmail(user@email.com)
+00:29:44.128 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for UserRepository name=#9
+00:29:44.128 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for CryptoGateway name=#10
+00:29:44.129 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for TokenGateway name=#11
+00:29:44.131 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for User name=child of #9#12
+00:29:44.205 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for Pair name=child of #11#13
+00:29:44.206 [Test worker] DEBUG io.mockk.impl.recording.states.AnsweringState - Answering User(fullName=User Name, document=000.000.000-00, email=user@email.com, password=password123, type=COMMON, balance=0, id=17362945-8026-4404-9dea-3a36dfbbe72a) on UserRepository(#9).findByEmail(user@email.com)
+00:29:44.207 [Test worker] DEBUG io.mockk.impl.recording.states.AnsweringState - Answering true on CryptoGateway(#10).matches(password123, password123)
+00:29:44.207 [Test worker] DEBUG io.mockk.impl.recording.states.AnsweringState - Answering (728bf02a-0d6b-46d4-ac7d-152c476facb4, 600) on TokenGateway(#11).generate(User(fullName=User Name, document=000.000.000-00, email=user@email.com, password=password123, type=COMMON, balance=0, id=17362945-8026-4404-9dea-3a36dfbbe72a))
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.5</a> at 8 de ago. de 2022 00:29:44</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TransferRequest.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">picpay</a> &gt; <a href="index.source.html" class="el_package">br.com.diogomurano.picpay.transaction.adapter.controller.request</a> &gt; <span class="el_source">TransferRequest.kt</span></div><h1>TransferRequest.kt</h1><pre class="source lang-java linenums">package br.com.diogomurano.picpay.transaction.adapter.controller.request
+
+import br.com.diogomurano.picpay.common.domain.utils.uuidCustomValueOf
+import br.com.diogomurano.picpay.transaction.domain.ports.input.TransferUseCase
+import com.fasterxml.jackson.annotation.JsonProperty
+import io.swagger.v3.oas.annotations.media.Schema
+import java.math.BigDecimal
+import javax.validation.constraints.NotBlank
+import javax.validation.constraints.Positive
+
+<span class="nc" id="L11">data class TransferRequest(</span>
+<span class="nc" id="L12">    @field:NotBlank(message = &quot;target_id can't be blank.&quot;)</span>
+    @field:JsonProperty(&quot;target_id&quot;)
+<span class="nc" id="L14">    val targetId: String,</span>
+
+<span class="nc" id="L16">    @field:Positive(message = &quot;value must be positive.&quot;)</span>
+    @field:JsonProperty(&quot;value&quot;)
+<span class="nc" id="L18">    val value: BigDecimal,</span>
+
+<span class="nc" id="L20">    @field:NotBlank(message = &quot;description can't be blank.&quot;)</span>
+    @field:JsonProperty(&quot;description&quot;)
+    @field:Schema(example = &quot;message&quot;)
+<span class="nc" id="L23">    val description: String</span>
+) {
+
+<span class="nc" id="L26">    fun toCommand(fromUserId: String) = TransferUseCase.TransferCommand(</span>
+<span class="nc" id="L27">        fromUserId = uuidCustomValueOf(fromUserId, &quot;user_id&quot;),</span>
+<span class="nc" id="L28">        targetUserId = uuidCustomValueOf(targetId, &quot;target_id&quot;),</span>
+<span class="nc" id="L29">        value = value,</span>
+<span class="nc" id="L30">        description = description</span>
+<span class="nc" id="L31">    )</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
